@@ -1,11 +1,10 @@
-import express from 'express';
+const express = require('express');
 const app = express();
-const server = http.createServer(app);
 const port = process.env.PORT || 5000;
-const host = '0.0.0.0';
+const host = '0.0.0.0'
 const io = require("socket.io")(port, {
     cors: {
-      origin: "https://khanhhoa-ictu.github.io/Social_Media/",
+      origin: "https://khanhhoa-ictu.github.io/Social_Media",
     },
   });
   let users = [];
@@ -48,4 +47,4 @@ const io = require("socket.io")(port, {
       io.emit("getUsers", users);
     });
   });
-  server.listen(port,host, () => console.log("server running on port " + port));
+  app.listen(port,host, () => console.log("server running on port " + port));
