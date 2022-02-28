@@ -1,10 +1,11 @@
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 5000;
-const host = '0.0.0.0'
+const host = '0.0.0.0';
 const io = require("socket.io")(port, {
     cors: {
-      origin: "https://khanhhoa-ictu.github.io/Social_Media",
+      origin: "https://khanhhoa-ictu.github.io",
+      // origin: "http://localhost:3000",
     },
   });
   let users = [];
