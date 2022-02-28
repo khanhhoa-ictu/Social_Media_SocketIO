@@ -52,4 +52,3 @@ const io = require("socket.io")(port, {
     });
   });
   app.listen(port,host, () => console.log("server running on port " + port));
-  app.get('/', (req: Request, res: Response) => { res.send('welcome to Test') })
