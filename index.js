@@ -1,10 +1,12 @@
+import express from 'express';
+const app = express();
 const port = process.env.PORT || 8900;
+
 const io = require("socket.io")(port, {
     cors: {
       origin: "https://khanhhoa-ictu.github.io/Social_Media/",
     },
   });
-  
   let users = [];
   //mang gom userId, socketId
   const addUser = (userId, socketId) => {
@@ -46,4 +48,4 @@ const io = require("socket.io")(port, {
       io.emit("getUsers", users);
     });
   });
-  
+  app.listen(port, () => console.log("server running on port " + port));
