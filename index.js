@@ -2,7 +2,6 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 const port = process.env.PORT || 5000;
-const host = '0.0.0.0';
 app.use(cors())
 const io = require("socket.io")(port, {
     cors: {
@@ -51,4 +50,4 @@ const io = require("socket.io")(port, {
       io.emit("getUsers", users);
     });
   });
-  app.listen(port,host, () => console.log("server running on port " + port));
+  app.listen(port, () => console.log("server running on port " + port));
