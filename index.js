@@ -1,8 +1,8 @@
 import express from 'express';
 const app = express();
 const server = http.createServer(app);
-const port = process.env.PORT || 8900;
-
+const port = process.env.PORT || 5000;
+const host = '0.0.0.0';
 const io = require("socket.io")(port, {
     cors: {
       origin: "https://khanhhoa-ictu.github.io/Social_Media/",
@@ -48,4 +48,4 @@ const io = require("socket.io")(port, {
       io.emit("getUsers", users);
     });
   });
-  server.listen(port, () => console.log("server running on port " + port));
+  server.listen(port,host, () => console.log("server running on port " + port));
