@@ -1,7 +1,9 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const port = process.env.PORT || 5000;
 const host = '0.0.0.0';
+app.use(cors())
 const io = require("socket.io")(port, {
     cors: {
       origin: "https://khanhhoa-ictu.github.io",
@@ -9,6 +11,7 @@ const io = require("socket.io")(port, {
     },
   });
   let users = [];
+  
   //mang gom userId, socketId
   const addUser = (userId, socketId) => {
     !users.some((user) => user.userId === userId) &&
