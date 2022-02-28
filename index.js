@@ -1,5 +1,6 @@
 import express from 'express';
 const app = express();
+const server = http.createServer(app);
 const port = process.env.PORT || 8900;
 
 const io = require("socket.io")(port, {
@@ -21,7 +22,6 @@ const io = require("socket.io")(port, {
   const getUser = (userId) => {
     return users.find((user) => user.userId === userId);
   };
-  
   io.on("connection", (socket) => {
     //when ceonnect
     console.log("a user connected.");
@@ -48,4 +48,4 @@ const io = require("socket.io")(port, {
       io.emit("getUsers", users);
     });
   });
-  app.listen(port, () => console.log("server running on port " + port));
+  server.listen(port, () => console.log("server running on port " + port));
